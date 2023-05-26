@@ -14,12 +14,12 @@ class TestSpindler(unittest.TestCase):
         service = battery.needs_service()
         self.assertTrue(service)
 
-    def test_tc020_battery_no_need_service_after_0_to_3_years(self):
+    def test_tc021_battery_no_need_service_after_0_to_3_years(self):
         battery = SpindlerBattery(LT_SP_LSD, TODAY)
         service = battery.needs_service()
         self.assertFalse(service)
 
-    def test_tc020_battery_no_need_service_just_after_service(self):
+    def test_tc022_battery_no_need_service_just_after_service(self):
         battery = SpindlerBattery(TODAY, TODAY)
         service = battery.needs_service()
         self.assertFalse(service)

@@ -14,3 +14,9 @@ W_MILES = 60000
 
 #today's date
 TODAY = date.today()
+
+#Carrigan service flag
+C_FLAG = 0.9
+
+#Octoprime service flag
+O_FLAG = 3

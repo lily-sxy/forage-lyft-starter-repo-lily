@@ -4,9 +4,10 @@ from serviceable import Serviceable
 
 # class Car(ABC):
 class Car(Serviceable):
-    def __init__(self, engine, battery):
+    def __init__(self, engine, battery, tire):
         self.engine = engine
         self.battery = battery
+        self.tire = tire
 
     def needs_service(self):
         """
@@ -15,7 +16,9 @@ class Car(Serviceable):
 
         return: boolean
         """
-        if self.engine.need_service() or self.battery.need_service():
+        if self.engine.need_service()\
+                or self.battery.need_service()\
+                or self.tire.needs_service():
             return True
         return False
 
