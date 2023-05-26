@@ -45,8 +45,7 @@ class CarFactory():
 
         :param current_date: the current date
         :param last_service_date: the date that the car get serviced last time
-        :param current_mileage: the car's current mileage
-        :param last_service_mileage: the mileage that the car get serviced last time
+        :param warning_light_is_on: wether the warning light is on
         :return: return a callipe car
         """
         engine = SternmanEngine(warning_light_is_on)
