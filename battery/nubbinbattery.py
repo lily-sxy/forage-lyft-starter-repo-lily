@@ -9,9 +9,7 @@ class NubbinBattery(Battery):
 
     def needs_service(self) -> bool:
         check_year = self.last_service_date.year + 4
-        check_month = self.last_service_date.month
-        check_day = self.last_service_date.day
-        check_date = date(check_year, check_month, check_day)
+        check_date = date.replace(year=check_year)
         if self.current_date < check_date:
             return False;
         return True
