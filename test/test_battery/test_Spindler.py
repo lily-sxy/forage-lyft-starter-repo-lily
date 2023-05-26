@@ -1,32 +1,25 @@
 import unittest
-from datetime import datetime, date
 from battery.spindler_battery import SpindlerBattery
+from library.Spindler_Test_Var import*
 
 
 class TestSpindler(unittest.TestCase):
-    def test_tc019_battery_need_service_after_2_years(self):
-        today = date.today()
-        last_service_date = today.replace(year=today.year - 2)
-        battery = SpindlerBattery(last_service_date, today)
+    def test_tc019_battery_need_service_after_3_years(self):
+        battery = SpindlerBattery(SP_LSD, TODAY)
         service = battery.needs_service()
         self.assertTrue(service)
 
-    def test_tc020_battery_need_service_after_more_2_years(self):
-        today = date.today()
-        last_service_date = today.replace(year=today.year - 3)
-        battery = SpindlerBattery(last_service_date, today)
+    def test_tc020_battery_need_service_after_more_3_years(self):
+        battery = SpindlerBattery(MT_SP_LSD, TODAY)
         service = battery.needs_service()
         self.assertTrue(service)
 
-    def test_tc020_battery_no_need_service_after_0_to_2_years(self):
-        today = date.today()
-        last_service_date = today.replace(year=today.year - 1)
-        battery = SpindlerBattery(last_service_date, today)
+    def test_tc020_battery_no_need_service_after_0_to_3_years(self):
+        battery = SpindlerBattery(LT_SP_LSD, TODAY)
         service = battery.needs_service()
         self.assertFalse(service)
 
     def test_tc020_battery_no_need_service_just_after_service(self):
-        today = date.today()
-        battery = SpindlerBattery(today, today)
+        battery = SpindlerBattery(TODAY, TODAY)
         service = battery.needs_service()
         self.assertFalse(service)

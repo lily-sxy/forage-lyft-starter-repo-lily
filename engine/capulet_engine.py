@@ -1,4 +1,5 @@
 from engine.engine import Engine
+from library.Class_Var import C_MILES
 
 
 class CapuletEngine(Engine):
@@ -7,4 +8,4 @@ class CapuletEngine(Engine):
         self.last_service_mileage = last_service_mileage
 
     def needs_service(self) -> bool:
-        return self.current_mileage - self.last_service_mileage > 30000
+        return self.current_mileage - self.last_service_mileage > C_MILES

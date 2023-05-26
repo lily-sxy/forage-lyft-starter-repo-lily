@@ -1,5 +1,5 @@
 from battery.battery import Battery
-from datetime import date
+from library.Class_Var import N_PERIOD
 
 
 class NubbinBattery(Battery):
@@ -8,7 +8,7 @@ class NubbinBattery(Battery):
         self.current_date = current_date
 
     def needs_service(self) -> bool:
-        check_year = self.last_service_date.year + 4
+        check_year = self.last_service_date.year + N_PERIOD
         check_date = self.last_service_date.replace(year=check_year)
         if self.current_date < check_date:
             return False;
